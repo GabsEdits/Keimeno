@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [wordCount, setWordCount] = useState(0);
   const [showShortcuts, setShowShortcuts] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   useEffect(() => {
     const editableArea = document.getElementById(
@@ -110,6 +111,9 @@ export default function Home() {
       if (event.key === "Escape") {
         setShowShortcuts(false);
       }
+      if (event.key === "Escape") {
+        setShowAbout(false);
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -159,6 +163,10 @@ export default function Home() {
     setShowShortcuts(!showShortcuts);
   };
 
+  const toggleAbout = () => {
+    setShowAbout(!showAbout);
+  };
+
   return (
     <main
       className={`${inter.className} transition-all pt-12 ${inter.className} ${
@@ -167,27 +175,24 @@ export default function Home() {
           : "dark:bg-neutral-900 bg-neutral-50"
       }`}
     >
-      <p className="top-4 left-4 absolute font-medium">Words: {wordCount}</p>
-      <button
-        onClick={toggleFocusMode}
-        title={`${focusMode ? "Disable Focus Mode" : "Focus mode (Shift + F)"}`}
-        className="mb-4 px-4 py-2 rounded-full absolute top-4 right-4 border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
-      >
-        Focus
-      </button>
-      <button
-        onClick={toggleShortcuts}
-        title="Keyboard Shortcuts"
-        className="mb-4 px-4 py-2 rounded-full absolute top-4 right-[110px] border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
-      >
-        Shortcuts
-      </button>
-      <section
-        id="main"
-        className={`flex min-h-screen flex-col items-center p-10 sm:p-4 transition-all ${
-          focusMode ? "p-4 px-8" : ""
-        }`}
-      >
+      <header className="pt-10">
+        <p className="top-4 left-4 absolute font-medium">Words: {wordCount}</p>
+        <button
+          onClick={toggleFocusMode}
+          title={`${
+            focusMode ? "Disable Focus Mode" : "Focus mode (Shift + F)"
+          }`}
+          className="mb-4 px-4 py-2 rounded-full absolute top-4 right-4 border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
+        >
+          Focus
+        </button>
+        <button
+          onClick={toggleShortcuts}
+          title="Keyboard Shortcuts"
+          className="mb-4 px-4 py-2 rounded-full absolute top-4 right-[110px] border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
+        >
+          Shortcuts
+        </button>
         <h1
           className={`text-center font-black text-5xl mb-10 cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-colors`}
           title="Clear text (Shift + C)"
@@ -195,7 +200,14 @@ export default function Home() {
         >
           Keímeno
         </h1>
-        <div
+      </header>
+      <section
+        id="main"
+        className={`flex min-h-screen flex-col items-center px-10 pb-10 sm:p-4 transition-all ${
+          focusMode ? "p-4 px-8" : ""
+        }`}
+      >
+        <figure
           id="editableArea"
           contentEditable="true"
           className={`${
@@ -206,16 +218,18 @@ export default function Home() {
             focusMode ? "border-neutral-600 border" : "border-none"
           } ${focusMode ? "mb-8" : ""}`}
           onInput={handleWordCount}
-        ></div>
-        <div
+        ></figure>
+        <aside
           id="underConstruction"
           className={`h-[300px] max-w-full my-[20px] mx-[30px] rounded-[20px] overflow-hidden bg-stable min-w-full  ${
             focusMode ? "hidden" : ""
           }`}
-        ></div>
-        <div className={`text-center ${focusMode ? "hidden" : ""}`}>
+        ></aside>
+        <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
-          <p className="text-xs mt-3 font-medium">v1.0.0-rc.0 &quot;Prut&quot;</p>
+          <p className="text-xs mt-3 font-medium">
+            v1.0.0-rc.1 "Prut"
+          </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
             <a href="https://gxbs.me" className="font-black underline">
@@ -223,13 +237,24 @@ export default function Home() {
             </a>
           </p>
           <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
-            © 2023 Gabs/Gabriel Cozma. All rights reserved.
+            © 2023 Gabriel Cozma. All rights reserved.
           </p>
-        </div>
+          <section className="flex justify-center gap-4 mt-3">
+          <p
+            className="text-sm font-bold underline cursor-pointer"
+            onClick={toggleAbout}
+          >
+            About Keímeno
+          </p>
+          <p className="text-sm font-bold underline">
+            <a href="https://github.com/GabsEdits/keimeno">Source Code</a>
+          </p>
+          </section>
+        </footer>
       </section>
       {showShortcuts && (
         <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-md ">
-          <div className="bg-white p-8 rounded-lg dark:bg-neutral-800">
+          <article className="bg-white p-8 rounded-lg dark:bg-neutral-800">
             <h2 className="text-lg font-bold mb-2">Keyboard Shortcuts</h2>
             <ul>
               <li className="mb-2">
@@ -281,7 +306,51 @@ export default function Home() {
             >
               Close
             </button>
-          </div>
+          </article>
+        </div>
+      )}
+      {showAbout && (
+        <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-md ">
+          <article className="bg-white p-8 rounded-lg dark:bg-neutral-800 max-w-[650px]">
+            <h2 className="text-2xl font-extrabold mb-2 text-center">
+              About Keímeno
+            </h2>
+            <p className="mb-2">
+              <b>Keímeno</b> is a simple note-taking app that saves your text
+              locally in your browser. It is designed to be distraction-free and
+              minimalist. Providing a clean interface for you to write your
+              thoughts. It also provides a word count feature and focus mode -
+              which removes all the distractions from the interface. You can
+              toggle focus mode using the button on the top right or by pressing
+              Shift + F. The name "Keímeno" is derived from the Greek word for
+              "text".
+            </p>
+            <p className="mb-2">
+              It provides a few basic text formatting options like bold, italic
+              and strikethrough. You can also save your text as a file {"(txt)"}{" "}
+              and open text files using specific keyboard shortcuts.
+            </p>
+            <p className="mb-2">
+              The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
+              and <a href="https://tailwindcss.com">Tailwind CSS</a>. It is a
+              PWA and can be installed on your device for offline use.
+            </p>
+            <p className="mb-2">
+              The app is open-source and available on{" "}
+              <a
+                href="https://github.com/GabsEdits/keimeno"
+                className="font-bold underline"
+              >
+                GitHub
+              </a>
+            </p>
+            <button
+              onClick={toggleAbout}
+              className="mt-4 px-4 py-2 rounded-full bg-neutral-200 text-black hover:bg-neutral-300 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600 transition-colors"
+            >
+              Close
+            </button>
+          </article>
         </div>
       )}
     </main>
