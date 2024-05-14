@@ -228,7 +228,7 @@ export default function Home() {
         <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
           <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.1 "Prut"
+            v1.0.0-rc.1 &quot;Prut&quot;
           </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
@@ -322,8 +322,8 @@ export default function Home() {
               thoughts. It also provides a word count feature and focus mode -
               which removes all the distractions from the interface. You can
               toggle focus mode using the button on the top right or by pressing
-              Shift + F. The name "Keímeno" is derived from the Greek word for
-              "text".
+              Shift + F. The name &quot;Keímeno&quot; is derived from the Greek word for
+              &quot;text&quot;.
             </p>
             <p className="mb-2">
               It provides a few basic text formatting options like bold, italic
