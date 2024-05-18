@@ -114,6 +114,30 @@ export default function Home() {
       if (event.key === "Escape") {
         setShowAbout(false);
       }
+      if (event.ctrlKey && event.key === "p") {
+        event.preventDefault();
+        const editableArea = document.getElementById(
+          "editableArea"
+        ) as HTMLDivElement;
+        const content = editableArea.innerText;
+        const pdfWindow = window.open("", "_blank");
+        const pdfDocument = pdfWindow?.document;
+        if (pdfDocument) {
+          pdfDocument.open();
+          pdfDocument.write(`
+        <html>
+          <head>
+            <title>Print Document</title>
+          </head>
+          <body>
+            <pre>${content}</pre>
+          </body>
+        </html>
+          `);
+          pdfDocument.close();
+          pdfWindow?.print();
+        }
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -228,7 +252,7 @@ export default function Home() {
         <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
           <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.1 &quot;Prut&quot;
+            v1.0.0-rc.2 &quot;Prut&quot;
           </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
@@ -240,15 +264,15 @@ export default function Home() {
             © 2023 Gabriel Cozma. All rights reserved.
           </p>
           <section className="flex justify-center gap-4 mt-3">
-          <p
-            className="text-sm font-bold underline cursor-pointer"
-            onClick={toggleAbout}
-          >
-            About Keímeno
-          </p>
-          <p className="text-sm font-bold underline">
-            <a href="https://github.com/GabsEdits/keimeno">Source Code</a>
-          </p>
+            <p
+              className="text-sm font-bold underline cursor-pointer"
+              onClick={toggleAbout}
+            >
+              About Keímeno
+            </p>
+            <p className="text-sm font-bold underline">
+              <a href="https://github.com/GabsEdits/keimeno">Source Code</a>
+            </p>
           </section>
         </footer>
       </section>
@@ -299,6 +323,12 @@ export default function Home() {
                 </span>{" "}
                 : Strikethrough text
               </li>
+              <li className="mb-2">
+                <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
+                  Ctrl + P
+                </span>{" "}
+                : Print text {"(opens in new tab)"}
+              </li>
             </ul>
             <button
               onClick={toggleShortcuts}
@@ -322,13 +352,18 @@ export default function Home() {
               thoughts. It also provides a word count feature and focus mode -
               which removes all the distractions from the interface. You can
               toggle focus mode using the button on the top right or by pressing
-              Shift + F. The name &quot;Keímeno&quot; is derived from the Greek word for
-              &quot;text&quot;.
+              Shift + F. The name &quot;Keímeno&quot; is derived from the Greek
+              word for &quot;text&quot;.
             </p>
             <p className="mb-2">
               It provides a few basic text formatting options like bold, italic
               and strikethrough. You can also save your text as a file {"(txt)"}{" "}
               and open text files using specific keyboard shortcuts.
+            </p>
+            <p className="mb-2">
+              It is also optimized to allow the user to take the text offline,
+              the text can be saved locally, and the text can be printed with a
+              simple keyboard shortcut {"(Ctrl + P)"}.
             </p>
             <p className="mb-2">
               The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
