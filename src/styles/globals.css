@@ -15,10 +15,10 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background-color: var(--background-color);
   transition: all 0.2s;
+  background-color: var(--background-color);
   height: 100%;
+  color: rgb(var(--foreground-rgb));
 }
 
 @layer utilities {
