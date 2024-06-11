@@ -191,6 +191,40 @@ export default function Home() {
     setShowAbout(!showAbout);
   };
 
+  useEffect(() => {
+    const hoverElement = document.querySelector("h1");
+    const originalColor = "var(--color-text)";
+
+    hoverElement.addEventListener("mouseenter", function () {
+      const randomColor = getRandomColor();
+      hoverElement.style.color = randomColor;
+    });
+
+    hoverElement.addEventListener("mouseleave", function () {
+      hoverElement.style.color = originalColor;
+    });
+
+    return () => {
+      hoverElement.removeEventListener("mouseenter", function () {
+        const randomColor = getRandomColor();
+        hoverElement.style.color = randomColor;
+      });
+
+      hoverElement.removeEventListener("mouseleave", function () {
+        hoverElement.style.color = originalColor;
+      });
+    };
+  }, []);
+
+  function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   return (
     <main
       className={`${inter.className} transition-all pt-12 ${inter.className} ${
@@ -238,7 +272,7 @@ export default function Home() {
             focusMode ? "min-h-[750px]" : "min-h-[550px]"
           } my-2 mx-[30px] sm:mx-4 ${
             focusMode ? "max-h-screen" : "max-h-[750px]"
-          } min-w-full font-normal p-5 rounded-[20px] overflow-auto resize-none dark:bg-neutral-800 bg-neutral-200 dark:text-neutral-100 text-neutral-900 ${
+          } min-w-full font-normal p-5 rounded-[20px] overflow-auto resize-none dark:bg-neutral-800 bg-neutral-200 dark:text-neutral-100 text-neutral-900 max-w-full ${
             focusMode ? "border-neutral-600 border" : "border-none"
           } ${focusMode ? "mb-8" : ""}`}
           onInput={handleWordCount}
