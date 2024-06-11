@@ -192,28 +192,32 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const hoverElement = document.querySelector("h1");
-    const originalColor = "var(--color-text)";
+    useEffect(() => {
+      const hoverElement = document.querySelector("h1");
+      const originalColor = "var(--color-text)";
 
-    hoverElement.addEventListener("mouseenter", function () {
-      const randomColor = getRandomColor();
-      hoverElement.style.color = randomColor;
-    });
-
-    hoverElement.addEventListener("mouseleave", function () {
-      hoverElement.style.color = originalColor;
-    });
-
-    return () => {
-      hoverElement.removeEventListener("mouseenter", function () {
+      if (hoverElement) {
+      hoverElement.addEventListener("mouseenter", function () {
         const randomColor = getRandomColor();
         hoverElement.style.color = randomColor;
       });
 
-      hoverElement.removeEventListener("mouseleave", function () {
+      hoverElement.addEventListener("mouseleave", function () {
         hoverElement.style.color = originalColor;
       });
-    };
+
+      return () => {
+        hoverElement.removeEventListener("mouseenter", function () {
+        const randomColor = getRandomColor();
+        hoverElement.style.color = randomColor;
+        });
+
+        hoverElement.removeEventListener("mouseleave", function () {
+        hoverElement.style.color = originalColor;
+        });
+      };
+      }
+    }, []);
   }, []);
 
   function getRandomColor() {
