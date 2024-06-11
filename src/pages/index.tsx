@@ -192,11 +192,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    useEffect(() => {
-      const hoverElement = document.querySelector("h1");
-      const originalColor = "var(--color-text)";
+    const hoverElement = document.querySelector("h1");
+    const originalColor = "var(--color-text)";
 
-      if (hoverElement) {
+    if (hoverElement) {
       hoverElement.addEventListener("mouseenter", function () {
         const randomColor = getRandomColor();
         hoverElement.style.color = randomColor;
@@ -208,16 +207,15 @@ export default function Home() {
 
       return () => {
         hoverElement.removeEventListener("mouseenter", function () {
-        const randomColor = getRandomColor();
-        hoverElement.style.color = randomColor;
+          const randomColor = getRandomColor();
+          hoverElement.style.color = randomColor;
         });
 
         hoverElement.removeEventListener("mouseleave", function () {
-        hoverElement.style.color = originalColor;
+          hoverElement.style.color = originalColor;
         });
       };
-      }
-    }, []);
+    }
   }, []);
 
   function getRandomColor() {
