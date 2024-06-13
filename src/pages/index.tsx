@@ -46,10 +46,10 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.shiftKey && event.key === "C") {
+      if (event.ctrlKey && event.key === "c") {
         clearText();
       }
-      if (event.shiftKey && event.key === "F") {
+      if (event.ctrlKey && event.key === "f") {
         toggleFocusMode();
       }
       if (event.ctrlKey && event.key === "b") {
@@ -319,13 +319,13 @@ export default function Home() {
             <ul>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Shift + C
+                  Ctrl + C
                 </span>{" "}
                 : Clear text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Shift + F
+                  Ctrl + F
                 </span>{" "}
                 : Toggle Focus Mode
               </li>
