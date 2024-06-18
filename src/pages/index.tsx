@@ -127,7 +127,7 @@ export default function Home() {
           pdfDocument.write(`
         <html>
           <head>
-            <title>Print Document</title>
+            <title>Print Document - Keímeno</title>
           </head>
           <body>
             <pre>${content}</pre>
@@ -193,7 +193,7 @@ export default function Home() {
 
   useEffect(() => {
     const hoverElement = document.querySelector("h1");
-    const originalColor = "var(--color-text)";
+    const originalColor = "inherit";
 
     if (hoverElement) {
       hoverElement.addEventListener("mouseenter", function () {
@@ -254,7 +254,7 @@ export default function Home() {
           Shortcuts
         </button>
         <h1
-          className={`text-center font-black text-5xl mb-10 cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-colors`}
+          className={`text-center font-black text-5xl mb-10 cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-color duration-500`}
           title="Clear text (Shift + C)"
           onClick={clearText}
         >
@@ -297,7 +297,7 @@ export default function Home() {
             </a>
           </p>
           <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
-            © 2023 Gabriel Cozma. All rights reserved.
+            © 2023-present Gabriel Cozma. All rights reserved.
           </p>
           <section className="flex justify-center gap-4 mt-3">
             <p
