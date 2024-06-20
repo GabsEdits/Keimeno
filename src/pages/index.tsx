@@ -290,7 +290,7 @@ export default function Home() {
         <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
           <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.2 &quot;Prut&quot;
+            v1.0.0-rc.3 &quot;Prut&quot;
           </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
@@ -396,7 +396,10 @@ export default function Home() {
             <p className="mb-2">
               It provides a few basic text formatting options like bold, italic
               and strikethrough. You can also save your text as a file {"(txt)"}{" "}
-              and open text files using specific keyboard shortcuts.
+              and open text files using specific keyboard shortcuts. The app
+              also provides a keyboard shortcut to clear the text and print the
+              text. You can view the keyboard shortcuts by pressing the
+              &quot;Shortcuts&quot; button.
             </p>
             <p className="mb-2">
               It is also optimized to allow the user to take the text offline,
