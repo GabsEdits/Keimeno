@@ -227,6 +227,8 @@ export default function Home() {
     return color;
   }
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <main
       className={`${inter.className} transition-all pt-12 ${inter.className} ${
@@ -297,7 +299,7 @@ export default function Home() {
             </a>
           </p>
           <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
-            © 2023-present Gabriel Cozma. All rights reserved.
+            © 2023-{currentYear} Gabriel Cozma. All rights reserved.
           </p>
           <section className="flex justify-center gap-4 mt-3">
             <p
