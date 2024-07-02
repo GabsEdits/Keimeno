@@ -40,6 +40,8 @@ export default function Home() {
         "editableArea"
       ) as HTMLDivElement;
       editableArea.innerHTML = "";
+      localStorage.removeItem("savedWordCount");
+      setWordCount(0);
       localStorage.removeItem("savedText");
     }
   }
