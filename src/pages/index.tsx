@@ -1,6 +1,9 @@
+import 'react-material-symbols/rounded';
+
 import { useEffect, useState } from "react";
 
 import { Inter } from "next/font/google";
+import { MaterialSymbol } from 'react-material-symbols';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -241,22 +244,24 @@ export default function Home() {
     >
       <header className="pt-10">
         <p className="top-4 left-4 absolute font-medium">Words: {wordCount}</p>
+        <div className="absolute top-4 right-4 flex gap-2">
         <button
           onClick={toggleFocusMode}
           title={`${
             focusMode ? "Disable Focus Mode" : "Focus mode (Shift + F)"
           }`}
-          className="mb-4 px-4 py-2 rounded-full absolute top-4 right-4 border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
+          className="mb-4 px-[0.55rem] py-2 rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
         >
-          Focus
+          <MaterialSymbol icon="adjust" size={23} fill grade={-25} className="opacity-80" />
         </button>
         <button
           onClick={toggleShortcuts}
           title="Keyboard Shortcuts"
-          className="mb-4 px-4 py-2 rounded-full absolute top-4 right-[110px] border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
+          className="mb-4 px-[0.55rem] py-2 rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
         >
-          Shortcuts
+          <MaterialSymbol icon="keyboard_command_key" size={23} fill grade={-25} className="opacity-80" />
         </button>
+        </div>
         <h1
           className={`text-center font-black text-5xl mb-10 cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-color duration-500`}
           title="Clear text (Shift + C)"
@@ -285,14 +290,14 @@ export default function Home() {
         ></figure>
         <aside
           id="underConstruction"
-          className={`h-[300px] max-w-full my-[20px] mx-[30px] rounded-[20px] overflow-hidden bg-stable min-w-full  ${
+          className={`h-[300px] max-w-full my-[20px] mx-[30px] rounded-[20px] overflow-hidden bg-stable min-w-full dark:opacity-40 ${
             focusMode ? "hidden" : ""
           }`}
         ></aside>
         <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
           <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.3 &quot;Prut&quot;
+            v1.0.0-rc.4 &quot;Prut&quot;
           </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
