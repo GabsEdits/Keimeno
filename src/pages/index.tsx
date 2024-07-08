@@ -244,22 +244,22 @@ export default function Home() {
     >
       <header className="pt-10">
         <p className="top-4 left-4 absolute font-medium">Words: {wordCount}</p>
-        <div className="absolute top-4 right-4 flex gap-2">
+        <div className="absolute top-4 right-4 flex gap-2 mb-4">
         <button
           onClick={toggleFocusMode}
           title={`${
             focusMode ? "Disable Focus Mode" : "Focus mode (Shift + F)"
           }`}
-          className="mb-4 px-[0.55rem] py-2 rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
+          className="w-[40px] h-[40px] p-2 flex items-center justify-center rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
         >
-          <MaterialSymbol icon="adjust" size={23} fill grade={-25} className="opacity-80" />
+          <MaterialSymbol icon="adjust" size={22} fill grade={-25} className="opacity-80" />
         </button>
         <button
           onClick={toggleShortcuts}
           title="Keyboard Shortcuts"
-          className="mb-4 px-[0.55rem] py-2 rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
+          className="w-[40px] h-[40px] p-2 flex items-center justify-center rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
         >
-          <MaterialSymbol icon="keyboard_command_key" size={23} fill grade={-25} className="opacity-80" />
+          <MaterialSymbol icon="keyboard_command_key" size={22} fill grade={-25} className="opacity-80" />
         </button>
         </div>
         <h1
@@ -306,7 +306,7 @@ export default function Home() {
             </a>
           </p>
           <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
-            © 2023-{currentYear} Gabriel Cozma. All rights reserved.
+            © 2023-{currentYear} Gabriel Cozma.
           </p>
           <section className="flex justify-center gap-4 mt-3">
             <p
