@@ -280,7 +280,7 @@ export default function Home() {
           className={`${
             focusMode ? "min-h-[750px]" : "min-h-[550px]"
           } my-2 mx-[30px] sm:mx-4 ${
-            focusMode ? "max-h-screen" : "max-h-[750px]"
+            focusMode ? "max-h-[75vh] min-h-[75vh]" : "max-h-[750px]"
           } min-w-full font-normal p-5 rounded-[20px] overflow-auto resize-none dark:bg-neutral-800 bg-neutral-200 dark:text-neutral-100 text-neutral-900 max-w-full ${
             focusMode ? "border-neutral-600 border" : "border-none"
           } ${focusMode ? "mb-8" : ""}`}
@@ -417,7 +417,7 @@ export default function Home() {
               PWA and can be installed on your device for offline use.
             </p>
             <p className="mb-2">
-              The app is open-source and available on{" "}
+              The project is open-source and the source code is available on{" "}
               <a
                 href="https://github.com/GabsEdits/keimeno"
                 className="font-bold underline"
