@@ -270,7 +270,7 @@ export default function Home() {
       </header>
       <section
         id="main"
-        className={`flex min-h-screen flex-col items-center px-10 pb-10 sm:p-4 transition-all ${
+        className={`flex flex-col items-center px-10 pb-10 sm:p-4 transition-all ${
           focusMode ? "p-4 px-8" : ""
         }`}
       >
