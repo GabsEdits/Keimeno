@@ -1,9 +1,9 @@
-import 'react-material-symbols/rounded';
+import "react-material-symbols/rounded";
 
 import { useEffect, useState } from "react";
 
 import { Inter } from "next/font/google";
-import { MaterialSymbol } from 'react-material-symbols';
+import { MaterialSymbol } from "react-material-symbols";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     const editableArea = document.getElementById(
-      "editableArea"
+      "editableArea",
     ) as HTMLDivElement;
     const savedText = localStorage.getItem("savedText");
     const savedWordCount = localStorage.getItem("savedWordCount");
@@ -28,7 +28,7 @@ export default function Home() {
 
   const handleWordCount = () => {
     const editableArea = document.getElementById(
-      "editableArea"
+      "editableArea",
     ) as HTMLDivElement;
     const content = editableArea.innerText;
     const words = content.trim().split(/\s+/);
@@ -40,7 +40,7 @@ export default function Home() {
   function clearText() {
     if (window.confirm("Are you sure you want to clear the text?")) {
       const editableArea = document.getElementById(
-        "editableArea"
+        "editableArea",
       ) as HTMLDivElement;
       editableArea.innerHTML = "";
       localStorage.removeItem("savedWordCount");
@@ -51,24 +51,24 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key === "c") {
+      if (event.ctrlKey && event.shiftKey && event.key === "c") {
         clearText();
       }
-      if (event.ctrlKey && event.key === "f") {
+      if (event.ctrlKey && event.shiftKey && event.key === "f") {
         toggleFocusMode();
       }
-      if (event.ctrlKey && event.key === "b") {
+      if (event.ctrlKey && event.shiftKey && event.key === "b") {
         event.preventDefault();
         makeTextBold();
       }
-      if (event.ctrlKey && event.key === "i") {
+      if (event.ctrlKey && event.shiftKey && event.key === "i") {
         event.preventDefault();
         makeTextItalic();
       }
-      if (event.ctrlKey && event.key === "s") {
+      if (event.ctrlKey && event.shiftKey && event.key === "s") {
         event.preventDefault();
         const editableArea = document.getElementById(
-          "editableArea"
+          "editableArea",
         ) as HTMLDivElement;
         const content = editableArea.innerText;
         const words = content.trim().split(/\s+/);
@@ -80,7 +80,7 @@ export default function Home() {
         a.click();
         URL.revokeObjectURL(url);
       }
-      if (event.ctrlKey && event.key === "o") {
+      if (event.ctrlKey && event.shiftKey && event.key === "o") {
         event.preventDefault();
         const input = document.createElement("input");
         input.type = "file";
@@ -90,7 +90,7 @@ export default function Home() {
           if (file) {
             const text = await file.text();
             const editableArea = document.getElementById(
-              "editableArea"
+              "editableArea",
             ) as HTMLDivElement;
             editableArea.innerText = text;
             handleWordCount();
@@ -98,10 +98,10 @@ export default function Home() {
         };
         input.click();
       }
-      if (event.ctrlKey && event.key === "d") {
+      if (event.ctrlKey && event.shiftKey && event.key === "d") {
         event.preventDefault();
         const editableArea = document.getElementById(
-          "editableArea"
+          "editableArea",
         ) as HTMLDivElement;
         const selection = window.getSelection();
         const range = selection?.getRangeAt(0);
@@ -119,10 +119,10 @@ export default function Home() {
       if (event.key === "Escape") {
         setShowAbout(false);
       }
-      if (event.ctrlKey && event.key === "p") {
+      if (event.ctrlKey && event.shiftKey && event.key === "p") {
         event.preventDefault();
         const editableArea = document.getElementById(
-          "editableArea"
+          "editableArea",
         ) as HTMLDivElement;
         const content = editableArea.innerText;
         const pdfWindow = window.open("", "_blank");
@@ -160,7 +160,7 @@ export default function Home() {
 
   const makeTextBold = () => {
     const editableArea = document.getElementById(
-      "editableArea"
+      "editableArea",
     ) as HTMLDivElement;
     const selection = window.getSelection();
     const range = selection?.getRangeAt(0);
@@ -175,7 +175,7 @@ export default function Home() {
 
   const makeTextItalic = () => {
     const editableArea = document.getElementById(
-      "editableArea"
+      "editableArea",
     ) as HTMLDivElement;
     const selection = window.getSelection();
     const range = selection?.getRangeAt(0);
@@ -243,22 +243,34 @@ export default function Home() {
       <header className="pt-10">
         <p className="top-4 left-4 absolute font-medium">Words: {wordCount}</p>
         <div className="absolute top-4 right-4 flex gap-2 mb-4">
-        <button
-          onClick={toggleFocusMode}
-          title={`${
-            focusMode ? "Disable Focus Mode" : "Focus mode (Shift + F)"
-          }`}
-          className="w-[40px] h-[40px] p-2 flex items-center justify-center rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
-        >
-          <MaterialSymbol icon="adjust" size={22} fill grade={-25} className="opacity-80" />
-        </button>
-        <button
-          onClick={toggleShortcuts}
-          title="Keyboard Shortcuts"
-          className="w-[40px] h-[40px] p-2 flex items-center justify-center rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
-        >
-          <MaterialSymbol icon="keyboard_command_key" size={22} fill grade={-25} className="opacity-80" />
-        </button>
+          <button
+            onClick={toggleFocusMode}
+            title={`${
+              focusMode ? "Disable Focus Mode" : "Focus mode (Shift + F)"
+            }`}
+            className="w-[40px] h-[40px] p-2 flex items-center justify-center rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors"
+          >
+            <MaterialSymbol
+              icon="adjust"
+              size={22}
+              fill
+              grade={-25}
+              className="opacity-80"
+            />
+          </button>
+          <button
+            onClick={toggleShortcuts}
+            title="Keyboard Shortcuts"
+            className="w-[40px] h-[40px] p-2 flex items-center justify-center rounded-full border border-neutral-500 dark:border-neutral-400 dark:text-neutral-100 text-neutral-950 hover:bg-neutral-300 hover:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-950 transition-colors sm:hidden"
+          >
+            <MaterialSymbol
+              icon="keyboard_command_key"
+              size={22}
+              fill
+              grade={-25}
+              className="opacity-80"
+            />
+          </button>
         </div>
         <h1
           className={`text-center font-black text-5xl mb-10 cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-color duration-500`}
@@ -295,7 +307,7 @@ export default function Home() {
         <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
           <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.4 &quot;Prut&quot;
+            v1.0.0-rc.5 &quot;Prut&quot;
           </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
@@ -326,49 +338,49 @@ export default function Home() {
             <ul>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + C
+                  Ctrl + Shift + C
                 </span>{" "}
                 : Clear text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + F
+                  Ctrl + Shift + F
                 </span>{" "}
                 : Toggle Focus Mode
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + B
+                  Ctrl + Shift + B
                 </span>{" "}
                 : Make text bold
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + I
+                  Ctrl + Shift + I
                 </span>{" "}
                 : Make text italic
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + S
+                  Ctrl + Shift + S
                 </span>{" "}
                 : Save text as file
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + O
+                  Ctrl + Shift + O
                 </span>{" "}
                 : Open text file
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + D
+                  Ctrl + Shift + D
                 </span>{" "}
                 : Strikethrough text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + P
+                  Ctrl + Shift + P
                 </span>{" "}
                 : Print text {"(opens in new tab)"}
               </li>
@@ -409,7 +421,7 @@ export default function Home() {
             <p className="mb-2">
               It is also optimized to allow the user to take the text offline,
               the text can be saved locally, and the text can be printed with a
-              simple keyboard shortcut {"(Ctrl + P)"}.
+              simple keyboard shortcut {"(Ctrl + Shift + P)"}.
             </p>
             <p className="mb-2">
               The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
