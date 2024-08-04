@@ -11,6 +11,7 @@ export default function Home() {
   const [wordCount, setWordCount] = useState(0);
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [isMac, setIsMac] = useState(false);
 
   useEffect(() => {
     const editableArea = document.getElementById(
@@ -23,6 +24,11 @@ export default function Home() {
     }
     if (savedWordCount) {
       setWordCount(parseInt(savedWordCount));
+    }
+
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.includes("mac")) {
+      setIsMac(true);
     }
   }, []);
 
@@ -51,21 +57,21 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.shiftKey && event.key === "c") {
+      if (event.metaKey && event.shiftKey && event.key === "c") {
         clearText();
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "f") {
+      if (event.metaKey && event.shiftKey && event.key === "f") {
         toggleFocusMode();
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "b") {
+      if (event.metaKey && event.shiftKey && event.key === "b") {
         event.preventDefault();
         makeTextBold();
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "i") {
+      if (event.metaKey && event.shiftKey && event.key === "i") {
         event.preventDefault();
         makeTextItalic();
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "s") {
+      if (event.metaKey && event.shiftKey && event.key === "s") {
         event.preventDefault();
         const editableArea = document.getElementById(
           "editableArea",
@@ -80,7 +86,7 @@ export default function Home() {
         a.click();
         URL.revokeObjectURL(url);
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "o") {
+      if (event.metaKey && event.shiftKey && event.key === "o") {
         event.preventDefault();
         const input = document.createElement("input");
         input.type = "file";
@@ -98,7 +104,7 @@ export default function Home() {
         };
         input.click();
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "d") {
+      if (event.metaKey && event.shiftKey && event.key === "d") {
         event.preventDefault();
         const editableArea = document.getElementById(
           "editableArea",
@@ -119,7 +125,7 @@ export default function Home() {
       if (event.key === "Escape") {
         setShowAbout(false);
       }
-      if (event.ctrlKey && event.shiftKey && event.key === "p") {
+      if (event.metaKey && event.shiftKey && event.key === "p") {
         event.preventDefault();
         const editableArea = document.getElementById(
           "editableArea",
@@ -307,7 +313,7 @@ export default function Home() {
         <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
           <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
           <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.5 &quot;Prut&quot;
+            v1.0.0-rc.6 &quot;Prut&quot;
           </p>
           <p className="text-base mt-3 font-medium">
             Made with ❤️ by{" "}
@@ -338,49 +344,49 @@ export default function Home() {
             <ul>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + C
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + C
                 </span>{" "}
                 : Clear text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + F
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + F
                 </span>{" "}
                 : Toggle Focus Mode
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + B
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + B
                 </span>{" "}
                 : Make text bold
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + I
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + I
                 </span>{" "}
                 : Make text italic
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + S
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + S
                 </span>{" "}
                 : Save text as file
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + O
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + O
                 </span>{" "}
                 : Open text file
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + D
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + D
                 </span>{" "}
                 : Strikethrough text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  Ctrl + Shift + P
+                  {isMac ? 'Command' : 'Ctrl'} + Shift + P
                 </span>{" "}
                 : Print text {"(opens in new tab)"}
               </li>
@@ -407,7 +413,7 @@ export default function Home() {
               thoughts. It also provides a word count feature and focus mode -
               which removes all the distractions from the interface. You can
               toggle focus mode using the button on the top right or by pressing
-              Shift + F. The name &quot;Keímeno&quot; is derived from the Greek
+              {isMac ? 'Command' : 'Ctrl'} + Shift + F. The name &quot;Keímeno&quot; is derived from the Greek
               word for &quot;text&quot;.
             </p>
             <p className="mb-2">
@@ -421,7 +427,7 @@ export default function Home() {
             <p className="mb-2">
               It is also optimized to allow the user to take the text offline,
               the text can be saved locally, and the text can be printed with a
-              simple keyboard shortcut {"(Ctrl + Shift + P)"}.
+              simple keyboard shortcut {"("}{isMac ? 'Command' : 'Ctrl'} + Shift + P{")"}.
             </p>
             <p className="mb-2">
               The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
