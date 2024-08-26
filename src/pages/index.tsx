@@ -125,7 +125,7 @@ export default function Home() {
       if (event.key === "Escape") {
         setShowAbout(false);
       }
-      if (event.metaKey && event.shiftKey && event.key === "p") {
+      if (event.metaKey && event.key === "p") {
         event.preventDefault();
         const editableArea = document.getElementById(
           "editableArea",
@@ -386,7 +386,7 @@ export default function Home() {
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + P
+                  {isMac ? 'Command' : 'Ctrl'} + P
                 </span>{" "}
                 : Print text {"(opens in new tab)"}
               </li>
@@ -427,7 +427,7 @@ export default function Home() {
             <p className="mb-2">
               It is also optimized to allow the user to take the text offline,
               the text can be saved locally, and the text can be printed with a
-              simple keyboard shortcut {"("}{isMac ? 'Command' : 'Ctrl'} + Shift + P{")"}.
+              simple keyboard shortcut {"("}{isMac ? 'Command' : 'Ctrl'} + P{")"}.
             </p>
             <p className="mb-2">
               The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
