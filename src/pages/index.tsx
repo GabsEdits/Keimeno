@@ -344,49 +344,49 @@ export default function Home() {
             <ul>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + C
+                  {isMac ? "Command" : "Ctrl"} + Shift + C
                 </span>{" "}
                 : Clear text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + F
+                  {isMac ? "Command" : "Ctrl"} + Shift + F
                 </span>{" "}
                 : Toggle Focus Mode
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + B
+                  {isMac ? "Command" : "Ctrl"} + Shift + B
                 </span>{" "}
                 : Make text bold
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + I
+                  {isMac ? "Command" : "Ctrl"} + Shift + I
                 </span>{" "}
                 : Make text italic
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + S
+                  {isMac ? "Command" : "Ctrl"} + Shift + S
                 </span>{" "}
                 : Save text as file
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + O
+                  {isMac ? "Command" : "Ctrl"} + Shift + O
                 </span>{" "}
                 : Open text file
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + Shift + D
+                  {isMac ? "Command" : "Ctrl"} + Shift + D
                 </span>{" "}
                 : Strikethrough text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? 'Command' : 'Ctrl'} + P
+                  {isMac ? "Command" : "Ctrl"} + P
                 </span>{" "}
                 : Print text {"(opens in new tab)"}
               </li>
@@ -406,43 +406,48 @@ export default function Home() {
             <h2 className="text-2xl font-extrabold mb-2 text-center">
               About Keímeno
             </h2>
-            <p className="mb-2">
-              <b>Keímeno</b> is a simple note-taking app that saves your text
-              locally in your browser. It is designed to be distraction-free and
-              minimalist. Providing a clean interface for you to write your
-              thoughts. It also provides a word count feature and focus mode -
-              which removes all the distractions from the interface. You can
-              toggle focus mode using the button on the top right or by pressing
-              {isMac ? 'Command' : 'Ctrl'} + Shift + F. The name &quot;Keímeno&quot; is derived from the Greek
-              word for &quot;text&quot;.
-            </p>
-            <p className="mb-2">
-              It provides a few basic text formatting options like bold, italic
-              and strikethrough. You can also save your text as a file {"(txt)"}{" "}
-              and open text files using specific keyboard shortcuts. The app
-              also provides a keyboard shortcut to clear the text and print the
-              text. You can view the keyboard shortcuts by pressing the
-              &quot;Shortcuts&quot; button.
-            </p>
-            <p className="mb-2">
-              It is also optimized to allow the user to take the text offline,
-              the text can be saved locally, and the text can be printed with a
-              simple keyboard shortcut {"("}{isMac ? 'Command' : 'Ctrl'} + P{")"}.
-            </p>
-            <p className="mb-2">
-              The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
-              and <a href="https://tailwindcss.com">Tailwind CSS</a>. It is a
-              PWA and can be installed on your device for offline use.
-            </p>
-            <p className="mb-2">
-              The project is open-source and the source code is available on{" "}
-              <a
-                href="https://github.com/GabsEdits/keimeno"
-                className="font-bold underline"
-              >
-                GitHub
-              </a>
-            </p>
+            <div className="flex flex-col gap-2">
+              <p className="text-pretty">
+                <b>Keímeno</b> is a simple note-taking app that saves your text
+                locally in your browser. It is designed to be distraction-free
+                and minimalist. Providing a clean interface for you to write
+                your thoughts. It also provides a word count feature and focus
+                mode - which removes all the distractions from the interface.
+                You can toggle focus mode using the button on the top right or
+                by pressing
+                {isMac ? "Command" : "Ctrl"} + Shift + F. The name
+                &quot;Keímeno&quot; is derived from the Greek word for
+                &quot;text&quot;.
+              </p>
+              <p className="text-pretty">
+                It provides a few basic text formatting options like bold,
+                italic and strikethrough. You can also save your text as a file{" "}
+                {"(txt)"} and open text files using specific keyboard shortcuts.
+                The app also provides a keyboard shortcut to clear the text and
+                print the text. You can view the keyboard shortcuts by pressing
+                the &quot;Shortcuts&quot; button.
+              </p>
+              <p className="text-pretty">
+                It is also optimized to allow the user to take the text offline,
+                the text can be saved locally, and the text can be printed with
+                a simple keyboard shortcut {"("}
+                {isMac ? "Command" : "Ctrl"} + P{")"}.
+              </p>
+              <p className="text-pretty">
+                The app is built using <a href="https://nextjs.org/">Next.js</a>{" "}
+                and <a href="https://tailwindcss.com">Tailwind CSS</a>. It is a
+                PWA and can be installed on your device for offline use.
+              </p>
+              <p>
+                The project is open-source and the source code is available on{" "}
+                <a
+                  href="https://github.com/GabsEdits/keimeno"
+                  className="font-bold underline"
+                >
+                  GitHub
+                </a>
+              </p>
+            </div>
             <button
               onClick={toggleAbout}
               className="mt-4 px-4 py-2 rounded-full bg-neutral-200 text-black hover:bg-neutral-300 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600 transition-colors"
