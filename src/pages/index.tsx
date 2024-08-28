@@ -278,65 +278,65 @@ export default function Home() {
             />
           </button>
         </div>
+      </header>
+      <div className="flex flex-col gap-10">
         <h1
-          className={`text-center font-black text-5xl mb-10 cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-color duration-500`}
+          className={`text-center font-black text-5xl cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-color duration-500`}
           title="Clear text (Shift + C)"
           onClick={clearText}
         >
           Keímeno
         </h1>
-      </header>
-      <section
-        id="main"
-        className={`flex flex-col items-center px-10 pb-10 sm:p-4 transition-all ${
-          focusMode ? "p-4 px-8" : ""
-        }`}
-      >
-        <figure
-          id="editableArea"
-          contentEditable="true"
-          className={`${
-            focusMode ? "min-h-[750px]" : "min-h-[550px]"
-          } my-2 mx-[30px] sm:mx-4 ${
-            focusMode ? "max-h-[75vh] min-h-[75vh]" : "max-h-[750px]"
-          } min-w-full font-normal p-5 rounded-[20px] overflow-auto resize-none dark:bg-neutral-800 bg-neutral-200 dark:text-neutral-100 text-neutral-900 max-w-full ${
-            focusMode ? "border-neutral-600 border" : "border-none"
-          } ${focusMode ? "mb-8" : ""}`}
-          onInput={handleWordCount}
-        ></figure>
-        <aside
-          id="underConstruction"
-          className={`h-[300px] max-w-full my-[20px] mx-[30px] rounded-[20px] overflow-hidden bg-stable min-w-full dark:opacity-40 ${
-            focusMode ? "hidden" : ""
+        <section
+          id="main"
+          className={`flex flex-col items-center gap-8 px-10 pb-10 sm:p-4 transition-all ${
+            focusMode ? "p-4 px-8" : ""
           }`}
-        ></aside>
-        <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
-          <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
-          <p className="text-xs mt-3 font-medium">
-            v1.0.0-rc.6 &quot;Prut&quot;
+        >
+          <figure
+            id="editableArea"
+            contentEditable="true"
+            className={`${
+              focusMode ? "min-h-[750px]" : "min-h-[550px]"
+            } mx-[30px] sm:mx-4 ${
+              focusMode ? "max-h-[75vh] min-h-[75vh]" : "max-h-[750px]"
+            } min-w-full font-normal p-5 rounded-[20px] overflow-auto resize-none dark:bg-neutral-800 bg-neutral-200 dark:text-neutral-100 text-neutral-900 max-w-full ${
+              focusMode ? "border-neutral-600 border" : "border-none"
+            } ${focusMode ? "mb-8" : ""}`}
+            onInput={handleWordCount}
+          ></figure>
+          <aside
+            id="underConstruction"
+            className={`h-[300px] max-w-full mx-[30px] rounded-[20px] overflow-hidden bg-stable min-w-full dark:opacity-40 ${
+              focusMode ? "hidden" : ""
+            }`}
+          ></aside>
+        </section>
+      </div>
+      <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
+        <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
+        <p className="text-xs mt-3 font-medium">v1.0.0-rc.7 &quot;Prut&quot;</p>
+        <p className="text-base mt-3 font-medium">
+          Made with ❤️ by{" "}
+          <a href="https://gxbs.me" className="font-black underline">
+            Gabs
+          </a>
+        </p>
+        <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
+          © 2023-{new Date().getFullYear()} Gabriel Cozma.
+        </p>
+        <section className="flex justify-center gap-4 mt-3">
+          <p
+            className="text-sm font-bold underline cursor-pointer"
+            onClick={toggleAbout}
+          >
+            About Keímeno
           </p>
-          <p className="text-base mt-3 font-medium">
-            Made with ❤️ by{" "}
-            <a href="https://gxbs.me" className="font-black underline">
-              Gabs
-            </a>
+          <p className="text-sm font-bold underline">
+            <a href="https://github.com/GabsEdits/keimeno">Source Code</a>
           </p>
-          <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
-            © 2023-{new Date().getFullYear()} Gabriel Cozma.
-          </p>
-          <section className="flex justify-center gap-4 mt-3">
-            <p
-              className="text-sm font-bold underline cursor-pointer"
-              onClick={toggleAbout}
-            >
-              About Keímeno
-            </p>
-            <p className="text-sm font-bold underline">
-              <a href="https://github.com/GabsEdits/keimeno">Source Code</a>
-            </p>
-          </section>
-        </footer>
-      </section>
+        </section>
+      </footer>
       {showShortcuts && (
         <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-md ">
           <article className="bg-white p-8 rounded-lg dark:bg-neutral-800">
