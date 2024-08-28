@@ -240,7 +240,7 @@ export default function Home() {
 
   return (
     <main
-      className={`${inter.className} transition-all pt-12 ${inter.className} ${
+      className={`${inter.className} transition-all py-12 ${inter.className} ${
         focusMode
           ? "dark:bg-neutral-800 bg-neutral-200"
           : "dark:bg-neutral-900 bg-neutral-50"
@@ -313,19 +313,19 @@ export default function Home() {
           ></aside>
         </section>
       </div>
-      <footer className={`text-center ${focusMode ? "hidden" : ""}`}>
+      <footer className={`text-center flex flex-col gap-3 ${focusMode ? "hidden" : ""}`}>
         <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
-        <p className="text-xs mt-3 font-medium">v1.0.0-rc.7 &quot;Prut&quot;</p>
-        <p className="text-base mt-3 font-medium">
+        <p className="text-xs font-medium">v1.0.0-rc.8 &quot;Prut&quot;</p>
+        <p className="text-base font-medium">
           Made with ❤️ by{" "}
           <a href="https://gxbs.me" className="font-black underline">
             Gabs
           </a>
         </p>
-        <p className="font-bold dark:text-neutral-500 text-neutral-800 mt-3">
+        <p className="font-bold dark:text-neutral-500 text-neutral-800">
           © 2023-{new Date().getFullYear()} Gabriel Cozma.
         </p>
-        <section className="flex justify-center gap-4 mt-3">
+        <section className="flex justify-center gap-4">
           <p
             className="text-sm font-bold underline cursor-pointer"
             onClick={toggleAbout}
