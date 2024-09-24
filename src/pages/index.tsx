@@ -63,11 +63,11 @@ export default function Home() {
       if (event.metaKey && event.shiftKey && event.key === "f") {
         toggleFocusMode();
       }
-      if (event.metaKey && event.shiftKey && event.key === "b") {
+      if (event.metaKey && event.key === "b") {
         event.preventDefault();
         makeTextBold();
       }
-      if (event.metaKey && event.shiftKey && event.key === "i") {
+      if (event.metaKey && event.key === "i") {
         event.preventDefault();
         makeTextItalic();
       }
@@ -313,7 +313,9 @@ export default function Home() {
           ></aside>
         </section>
       </div>
-      <footer className={`text-center flex flex-col gap-3 ${focusMode ? "hidden" : ""}`}>
+      <footer
+        className={`text-center flex flex-col gap-3 ${focusMode ? "hidden" : ""}`}
+      >
         <p className="text-xs">Just Text. Just Notes. Save. Secure.</p>
         <p className="text-xs font-medium">v1.0.0-rc.8 &quot;Prut&quot;</p>
         <p className="text-base font-medium">
@@ -350,23 +352,29 @@ export default function Home() {
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? "Command" : "Ctrl"} + Shift + F
+                  {isMac ? "Command" : "Ctrl"} + D
                 </span>{" "}
-                : Toggle Focus Mode
+                : Strikethrough text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? "Command" : "Ctrl"} + Shift + B
+                  {isMac ? "Command" : "Ctrl"} + B
                 </span>{" "}
                 : Make text bold
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? "Command" : "Ctrl"} + Shift + I
+                  {isMac ? "Command" : "Ctrl"} + I
                 </span>{" "}
                 : Make text italic
               </li>
               <li className="mb-2">
+                <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
+                  {isMac ? "Command" : "Ctrl"} + Shift + F
+                </span>{" "}
+                : Toggle Focus Mode
+              </li>
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + Shift + S
                 </span>{" "}
@@ -377,12 +385,6 @@ export default function Home() {
                   {isMac ? "Command" : "Ctrl"} + Shift + O
                 </span>{" "}
                 : Open text file
-              </li>
-              <li className="mb-2">
-                <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
-                  {isMac ? "Command" : "Ctrl"} + Shift + D
-                </span>{" "}
-                : Strikethrough text
               </li>
               <li className="mb-2">
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
