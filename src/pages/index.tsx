@@ -343,32 +343,32 @@ export default function Home() {
         <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-md ">
           <article className="bg-white p-8 rounded-lg dark:bg-neutral-800">
             <h2 className="text-lg font-bold mb-2">Keyboard Shortcuts</h2>
-            <ul>
-              <li className="mb-2">
+            <ul className="flex flex-col gap-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + Shift + C
                 </span>{" "}
                 : Clear text
               </li>
-              <li className="mb-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + D
                 </span>{" "}
                 : Strikethrough text
               </li>
-              <li className="mb-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + B
                 </span>{" "}
                 : Make text bold
               </li>
-              <li className="mb-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + I
                 </span>{" "}
                 : Make text italic
               </li>
-              <li className="mb-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + Shift + F
                 </span>{" "}
@@ -380,13 +380,13 @@ export default function Home() {
                 </span>{" "}
                 : Save text as file
               </li>
-              <li className="mb-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + Shift + O
                 </span>{" "}
                 : Open text file
               </li>
-              <li className="mb-2">
+              <li>
                 <span className="font-bold p-1 rounded-md bg-neutral-300 dark:bg-neutral-700">
                   {isMac ? "Command" : "Ctrl"} + P
                 </span>{" "}
