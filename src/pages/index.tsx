@@ -282,7 +282,7 @@ export default function Home() {
       <div className="flex flex-col gap-10">
         <h1
           className={`text-center font-black text-5xl cursor-pointer tracking-tight hover:text-neutral-400 hover:underline transition-color duration-500`}
-          title="Clear text (Shift + C)"
+          title="Clear text (Ctrl/Cmd + Shift + C)"
           onClick={clearText}
         >
           Keímeno
