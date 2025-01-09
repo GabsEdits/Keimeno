@@ -1,20 +1,14 @@
-import type { Config } from "tailwindcss";
+import { type Config } from "tailwindcss";
 
-const config: Config = {
+export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "{routes,islands,components}/**/*.{ts,tsx,js,jsx}",
   ],
   theme: {
-    screens: {
-      sm: { max: "640px" },
-      md: { max: "768px" },
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-    },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
       backgroundImage: {
         wip: "repeating-linear-gradient( -45deg, #000, #000 30px, #ffdd00 30px, #ffdd00 50px )",
         stable1: "repeating-linear-gradient( -45deg, #04724D, #04724D 30px, #F06449 30px, #F06449 50px )",
@@ -24,8 +18,5 @@ const config: Config = {
         "black-soft": "#222222",
       },
     },
-    plugins: [],
   },
-};
-
-export default config;
+} satisfies Config;
