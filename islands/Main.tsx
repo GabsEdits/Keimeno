@@ -352,7 +352,7 @@ export default function Main() {
                 `It is also optimized to allow the user to take the text offline, the text can be saved locally, and the text can be printed with a simple keyboard shortcut {"("}${
                   isMac ? "Command" : "Ctrl"
                 } + P{")"}.`,
-                `The app is built using <a href="https://nextjs.org/">Next.js</a> and <a href="https://tailwindcss.com">Tailwind CSS</a>. It is a PWA and can be installed on your device for offline use.`,
+                `The app is built using <a href="https://fresh.deno.dev/">Fresh</a> and <a href="https://tailwindcss.com">Tailwind CSS</a>. It is a PWA and can be installed on your device for offline use.`,
                 `The project is open-source and the source code is available on <a href="https://github.com/GabsEdits/keimeno" className="font-bold underline">GitHub</a>`,
               ].map((text, index) => (
                 <p
