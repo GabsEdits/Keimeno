@@ -8,11 +8,11 @@ export default function Main() {
   const [focusMode, setFocusMode] = useState(false);
 
   useEffect(() => {
-    const editableArea = document.getElementById("editableArea") as HTMLDivElement;
-    const savedText = localStorage.getItem("saveText");
+    const editableArea = document.getElementById("editableArea") as HTMLTextAreaElement;
+    const savedText = localStorage.getItem("savedText");
     const savedWordCount = localStorage.getItem("savedWordCount");
     if (savedText && editableArea) {
-      editableArea.innerHTML = savedText;
+      editableArea.value = savedText;
     }
     if (savedWordCount) {
       setWordCount(parseInt(savedWordCount));
@@ -22,8 +22,8 @@ export default function Main() {
   }, []);
 
   const handleWordCount = () => {
-    const editableArea = document.getElementById("editableArea") as HTMLDivElement;
-    const content = editableArea.innerText;
+    const editableArea = document.getElementById("editableArea") as HTMLTextAreaElement;
+    const content = editableArea.value;
     const words = content.trim().split(/\s+/);
     const wordCount = words.length || 0;
     setWordCount(wordCount);
@@ -33,8 +33,8 @@ export default function Main() {
 
   const clearText = () => {
     if (confirm("Are you sure you want to clear the text?")) {
-      const editableArea = document.getElementById("editableArea") as HTMLDivElement;
-      editableArea.innerHTML = "";
+      const editableArea = document.getElementById("editableArea") as HTMLTextAreaElement;
+      editableArea.value = "";
       localStorage.removeItem("savedWordCount");
       setWordCount(0);
       localStorage.removeItem("savedText");
@@ -87,8 +87,8 @@ export default function Main() {
   const toggleAbout = () => setShowAbout(!showAbout);
 
   const saveText = () => {
-    const editableArea = document.getElementById("editableArea") as HTMLDivElement;
-    const content = editableArea.innerText;
+    const editableArea = document.getElementById("editableArea") as HTMLTextAreaElement;
+    const content = editableArea.value;
     const words = content.trim().split(/\s+/);
     const blob = new Blob([content], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
@@ -107,8 +107,8 @@ export default function Main() {
       const file = (event.target as HTMLInputElement).files?.[0];
       if (file) {
         const text = await file.text();
-        const editableArea = document.getElementById("editableArea") as HTMLDivElement;
-        editableArea.innerText = text;
+        const editableArea = document.getElementById("editableArea") as HTMLTextAreaElement;
+        editableArea.value = text;
         handleWordCount();
       }
     };
@@ -116,8 +116,8 @@ export default function Main() {
   };
 
   const printText = () => {
-    const editableArea = document.getElementById("editableArea") as HTMLDivElement;
-    const content = editableArea.innerText;
+    const editableArea = document.getElementById("editableArea") as HTMLTextAreaElement;
+    const content = editableArea.value;
     const pdfWindow = globalThis.open("", "_blank");
     const pdfDocument = pdfWindow?.document;
     if (pdfDocument) {
@@ -220,15 +220,16 @@ export default function Main() {
         >
           Keímeno
         </h1>
+        <p className={`text-center text-sm mt-2 opacity-50 ${ focusMode ? "hidden" : ""}`}><b>Tip:</b> Try typing something in the textbox below, and refresh the page.</p>
         <section
           id="main"
           className={`flex flex-col items-center gap-1 overflow-hidden rounded-3xl transition-all ${
             focusMode ? "p-4 px-8" : ""
           }`}
         >
-          <figure
+          <textarea
             id="editableArea"
-            contentEditable="true"
+            placeholder="Click here to start typing..."
             className={`${
               focusMode ? "min-h-[750px]" : "min-h-[550px]"
             } mx-7 sm:mx-4 ${
@@ -237,8 +238,9 @@ export default function Main() {
               focusMode ? "border-neutral-600 border rounded-3xl" : "border-none"
             } ${focusMode ? "mb-8" : ""}`}
             onInput={handleWordCount}
+            onBlur={handleWordCount}
           >
-          </figure>
+          </textarea>
           <aside
             className={`h-[300px] max-w-full mx-7 overflow-hidden bg-stable min-w-full dark:opacity-40 ${
               focusMode ? "hidden" : ""
